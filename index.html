@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drill 2</title>
+<link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+<script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+<style>
+    body {
+        background-color: #101a14;
+        color: #6bdb8b;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .container {
+        background-color: #171f1a;
+        border: 2px solid #39965b;
+        width: 400px;
+        max-width: 85%;
+        margin: 30px auto;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        color: #55e887;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 5px;
+        background-color: #090e0b;
+        color: white;
+        border: 1px solid #39965b;
+        border-radius: 8px;
+    }
+
+    button {
+        width: 95%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #176b36;
+        color: white;
+        border-radius: 8px;
+        border: 1px solid #55e887;
+    }
+</style>
+</head>
+
+<body>
+    <h2>ADD NEW CLUB MEMBERS</h2>
+
+    <div class="container">
+        <input type="text" id="first_name" placeholder="First Name">
+        <input type="text" id="last_name" placeholder="Last Name">
+        <button py-click="check_club_member">SUBMIT</button>
+    </div>
+
+    <dropbox>
+
+    </dropbox>
+    <div id="result">Enter your name to check if you are a part of the ICT Club.</div>
+
+    <script type="py" src="main.py"></script>
+</body>
+</html>
