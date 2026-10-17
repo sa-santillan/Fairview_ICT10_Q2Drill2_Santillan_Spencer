@@ -1,43 +1,30 @@
-# Candidate Verification System
+# Set Operators
 from pyscript import document, display
 
-# Uses a list to group ICT club members
-ict_club_members = [
-    "Joshua Ortiz",
-    "Enzo Ruiz",
-    "Logan Anaque",
-    "Doctor Doom",
-    "John Hizon",
-    "Khabib Nurmagomedov",
-    "Islam Makhachev",
-    "Iron Man"
-]
+# Sets for each grade
+grade_7 = {"Doctor Doom", "Iron Man"}
+grade_8 = {"Khabib Nurmagomedov", "Islam Makhachev"}
+grade_9 = {"Joshua Ortiz", "John Hizon"}
+grade_10 = {"Logan Anaque", "Enzo Ruiz"}
 
-grade_7 = {'Doctor Doom', 'Iron Man'}
-grade_8 = {'Khabib Nurmagomedov', 'Islam Makhachev'}
-grade_9 = {'Joshu Ortiz', 'John Hizon'}
-grade_10 = {'Logan Anaque', 'Enzo Ruiz'}
+# Combines all grade sets
+all_members = grade_7 | grade_8 | grade_9 | grade_10
 
-members_list = "<br>".join(sorted(ict_club_members))
-new_members_list = grade_7 | grade_8 | grade_9 | grade_10
+# Displays all members and the total
+def show_members():
+    members_list = "<br>".join(sorted(all_members))
+    display(f"ALL MEMBERS:<br>{members_list} <br>TOTAL MEMBERS: {len(all_members)}", target="result")
 
-display(f'members_list')
-display(len('members_list'))
+show_members()
 
-# Combines the first and last name inputted and checks if they are in the ICT club members list
+# Adds a new club member
+
 def add_club_member(e):
-    first_name = document.getElementById("first_name").value.strip()
-    last_name = document.getElementById("last_name").value.strip()
+    first_name = document.getElementById("first_name").value.strip().title()
+    last_name = document.getElementById("last_name").value.strip().title()
 
-    club_member_name = first_name + " " + last_name
-    is_member = club_member_name in ict_club_members
+    # Adds the full name to the set
+    all_members.add(first_name + " " + last_name)
 
-# Different messages shown to the user depending on whether they are a member or not
-    messages = [
-        "Sorry " + club_member_name + ", your name is not on the list.",
-        "Congratulations " + club_member_name + "! You are now part of the ICT club."
-    ]
-
-# Displays the Candidate Verification System
-    document.getElementById("result").innerHTML = ""
-    display(messages[is_member], target="result")
+    # Updates the displayed results
+    show_members()
